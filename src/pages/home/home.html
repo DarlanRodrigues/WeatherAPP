@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>WheaterApp</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <ion-grid *ngIf="weather">
+    <ion-row>
+      <ion-col width-50 offset-25>
+        <h2 class="location">{{weather.name}} {{weather.sys.country}}</h2>
+
+        <div *ngFor="let obj of weather.weather">
+          <!-- <div class="icon">
+            <img src="obj.icon">
+          </div>
+        -->
+          <h3 class="desc">{{obj.description}}</h3>
+          <br />
+
+        </div>
+        <h1 class="temp">{{weather.main.temp}}&deg;</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100>
+        <ion-list>
+          <ion-item>
+            <strong>Humidity: </strong>{{weather.main.humidity}}
+          </ion-item>
+          <ion-item>
+            <strong>Wind Speed: </strong>{{weather.wind.speed}}
+          </ion-item>
+        </ion-list>
+
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
